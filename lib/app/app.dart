@@ -4,14 +4,19 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.network(
-        'https://resources.ninghao.net/images/IMG_2490.JPG',
+      child: Container(
+        child: Image.asset(
+          'assets/images/logo.png',
+          width: 96,
+          color: Colors.white,
+        ),
+        color: Colors.deepPurpleAccent,
+        padding: EdgeInsets.all(60),
+        alignment: Alignment.topCenter,
         width: 350,
         height: 350,
-        fit: BoxFit.cover,
-        alignment: Alignment.bottomRight,
-        color: Colors.brown,
-        colorBlendMode: BlendMode.softLight,
+        transform: Matrix4.rotationZ(0.5),
+        transformAlignment: Alignment.topRight,
       ),
     );
   }
