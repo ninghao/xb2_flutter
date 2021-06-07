@@ -4,15 +4,26 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        '犬吠水声中，桃花带露浓。树深时见鹿，溪午不闻钟。',
+      child: RichText(
         textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 22.0,
+        text: TextSpan(
+          text: '犬吠水声中，',
+          style: TextStyle(
+            fontSize: 22.0,
+          ),
+          children: [
+            TextSpan(
+              text: '桃花',
+              style: TextStyle(
+                color: Colors.pinkAccent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            TextSpan(
+              text: '带露浓。',
+            ),
+          ],
         ),
-        textAlign: TextAlign.center,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
       ),
     );
   }
