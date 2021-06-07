@@ -4,9 +4,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(
-        'assets/images/logo.png',
-        width: 128,
+      child: Image.network(
+        'https://resources.ninghao.net/images/IMG_2490.JPG',
       ),
     );
   }
