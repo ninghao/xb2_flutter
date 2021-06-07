@@ -6,7 +6,11 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Center(
-        child: Text('NINGHAO'),
+        child: Icon(
+          Icons.landscape_rounded,
+          color: Colors.amber,
+          size: 128,
+        ),
       ),
     );
   }
