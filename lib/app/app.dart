@@ -17,6 +17,41 @@ class _AppState extends State<App> {
     });
   }
 
+  // 一组页面主体小部件
+  final pageMain = [
+    // 发现
+    TabBarView(
+      children: [
+        Icon(
+          Icons.explore_outlined,
+          size: 128,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.local_fire_department_outlined,
+          size: 128,
+          color: Colors.black12,
+        ),
+      ],
+    ),
+    // 添加
+    Center(
+      child: Icon(
+        Icons.add_a_photo_outlined,
+        size: 128,
+        color: Colors.black12,
+      ),
+    ),
+    // 用户
+    Center(
+      child: Icon(
+        Icons.account_circle_outlined,
+        size: 128,
+        color: Colors.black12,
+      ),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,20 +85,7 @@ class _AppState extends State<App> {
               ],
             ),
           ),
-          body: TabBarView(
-            children: [
-              Icon(
-                Icons.explore_outlined,
-                size: 128,
-                color: Colors.black12,
-              ),
-              Icon(
-                Icons.local_fire_department_outlined,
-                size: 128,
-                color: Colors.black12,
-              ),
-            ],
-          ),
+          body: pageMain.elementAt(currentAppBottomNavigationBarItem),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentAppBottomNavigationBarItem,
             onTap: onTapAppBottomNavigationBarItem,
