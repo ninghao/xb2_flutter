@@ -7,6 +7,16 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  // 底部导航栏当前项目
+  int currentAppBottomNavigationBarItem = 0;
+
+  // 点按底部导航栏事件处理
+  void onTapAppBottomNavigationBarItem(int index) {
+    setState(() {
+      currentAppBottomNavigationBarItem = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -55,6 +65,8 @@ class _AppState extends State<App> {
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
+            currentIndex: currentAppBottomNavigationBarItem,
+            onTap: onTapAppBottomNavigationBarItem,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.explore_outlined),
