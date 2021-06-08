@@ -10,10 +10,14 @@ class _AppState extends State<App> {
   // 底部导航栏当前项目
   int currentAppBottomNavigationBarItem = 0;
 
+  // 是否显示应用栏
+  bool showAppBar = true;
+
   // 点按底部导航栏事件处理
   void onTapAppBottomNavigationBarItem(int index) {
     setState(() {
       currentAppBottomNavigationBarItem = index;
+      showAppBar = index == 0;
     });
   }
 
@@ -62,29 +66,31 @@ class _AppState extends State<App> {
         length: 2,
         child: Scaffold(
           backgroundColor: Colors.amber,
-          appBar: AppBar(
-            title: Image.asset(
-              'assets/images/logo.png',
-              width: 32,
-              color: Colors.white,
-            ),
-            leading: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_horiz),
-              ),
-            ],
-            bottom: TabBar(
-              tabs: [
-                Tab(text: '最近'),
-                Tab(text: '热门'),
-              ],
-            ),
-          ),
+          appBar: showAppBar
+              ? AppBar(
+                  title: Image.asset(
+                    'assets/images/logo.png',
+                    width: 32,
+                    color: Colors.white,
+                  ),
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.menu),
+                  ),
+                  actions: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.more_horiz),
+                    ),
+                  ],
+                  bottom: TabBar(
+                    tabs: [
+                      Tab(text: '最近'),
+                      Tab(text: '热门'),
+                    ],
+                  ),
+                )
+              : null,
           body: pageMain.elementAt(currentAppBottomNavigationBarItem),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentAppBottomNavigationBarItem,
