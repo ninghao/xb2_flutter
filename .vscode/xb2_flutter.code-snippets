@@ -1,0 +1,109 @@
+{
+  "StatelessWidget": {
+    "prefix": "slw",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:WidgetName} extends StatelessWidget {",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t\treturn ${2:Container}();",
+      "\t}",
+      "}"
+    ],
+    "description": "StatelessWidget"
+  },
+  "StatefulWidget": {
+    "prefix": "sfw",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:WidgetName} extends StatefulWidget {",
+      "\t@override",
+      "\t_${1:WidgetName}State createState() => _${1:WidgetName}State();",
+      "}\n",
+      "class _${1:WidgetName}State extends State<${1:WidgetName}> {",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t\treturn ${2:Container}();",
+      "\t}",
+      "}"
+    ],
+    "description": "StatefulWidget"
+  },
+  "StatelessWidget with Scaffold": {
+    "prefix": "slws",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:WidgetName} extends StatelessWidget {",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t\treturn ${Scaffold}(",
+      "\t\t\tappBar: AppBar(",
+      "\t\t\t\ttitle: Text('${1:WidgetName}'),",
+      "\t\t\t),${2}",
+      "\t\t);",
+      "\t}",
+      "}"
+    ],
+    "description": "StatelessWidget with Scaffold"
+  },
+  "StatefulWidget with Scaffold": {
+    "prefix": "sfws",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:WidgetName} extends StatefulWidget {",
+      "\t@override",
+      "\t_${1:WidgetName}State createState() => _${1:WidgetName}State();",
+      "}\n",
+      "class _${1:WidgetName}State extends State<${1:WidgetName}> {",
+      "\t@override",
+      "\tWidget build(BuildContext context) {",
+      "\t\treturn ${Scaffold}(",
+      "\t\t\tappBar: AppBar(",
+      "\t\t\t\ttitle: Text('${1:WidgetName}'),",
+      "\t\t\t),${2}",
+      "\t\t);",
+      "\t}",
+      "}"
+    ],
+    "description": "StatefulWidget with Scaffold"
+  },
+  "InheritedWidget": {
+    "prefix": "ihw",
+    "body": [
+      "class ${1:WidgetName} extends InheritedWidget {",
+      "\tfinal Widget child;",
+      "\t${2}",
+      "\t${1:WidgetName}({",
+      "\t\tthis.child,",
+      "\t\t${2}",
+      "\t}) : super(child: child);\n",
+      "\tstatic ${1:WidgetName} of(BuildContext context) =>",
+      "\t\t\tcontext.inheritFromWidgetOfExactType(${1:WidgetName});\n",
+      "\t@override",
+      "\tbool updateShouldNotify(${1:WidgetName} oldWidget) {",
+      "\t\treturn true;",
+      "\t}",
+      "}"
+    ],
+    "description": "InheritedWidget"
+  },
+  "setState": {
+    "prefix": "ss",
+    "body": ["setState(() {${1}});"],
+    "description": "setState"
+  },
+  "build": {
+    "prefix": "build",
+    "body": [
+      "@override",
+      "Widget build(BuildContext context) {",
+      "\treturn ${1:Container}(${2});",
+      "}"
+    ],
+    "description": "Build Method"
+  }
+}
