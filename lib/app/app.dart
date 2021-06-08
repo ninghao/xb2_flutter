@@ -49,6 +49,22 @@ class App extends StatelessWidget {
               ),
             ],
           ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.explore_outlined),
+                label: '发现',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add_a_photo_outlined),
+                label: '添加',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle_outlined),
+                label: '用户',
+              ),
+            ],
+          ),
         ),
       ),
     );
