@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/app/components/app_page_header.dart';
 import 'package:xb2_flutter/app/themes/app_theme.dart';
 
 class App extends StatefulWidget {
@@ -66,31 +67,7 @@ class _AppState extends State<App> {
         length: 2,
         child: Scaffold(
           backgroundColor: Colors.amber,
-          appBar: showAppBar
-              ? AppBar(
-                  title: Image.asset(
-                    'assets/images/logo.png',
-                    width: 32,
-                    color: Colors.white,
-                  ),
-                  leading: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.menu),
-                  ),
-                  actions: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.more_horiz),
-                    ),
-                  ],
-                  bottom: TabBar(
-                    tabs: [
-                      Tab(text: '最近'),
-                      Tab(text: '热门'),
-                    ],
-                  ),
-                )
-              : null,
+          appBar: showAppBar ? AppPageHeader() : null,
           body: pageMain.elementAt(currentAppBottomNavigationBarItem),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentAppBottomNavigationBarItem,
