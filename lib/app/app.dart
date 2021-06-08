@@ -110,6 +110,14 @@ class _AppState extends State<App> {
               ),
             ],
           ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.share_outlined),
+            onPressed: () {
+              print('floating action button');
+            },
+            backgroundColor: Colors.black87,
+            foregroundColor: Colors.white70,
+          ),
         ),
       ),
     );
