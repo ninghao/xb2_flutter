@@ -10,6 +10,23 @@ class App extends StatelessWidget {
       darkTheme: AppTheme.dark,
       home: Scaffold(
         backgroundColor: Colors.amber,
+        appBar: AppBar(
+          title: Image.asset(
+            'assets/images/logo.png',
+            width: 32,
+            color: Colors.white,
+          ),
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.menu),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.more_horiz),
+            ),
+          ],
+        ),
         body: Center(
           child: Text('NINGHAO.CO'),
         ),
