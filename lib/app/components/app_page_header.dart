@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/app/components/app_logo.dart';
 
 class AppPageHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -7,11 +8,7 @@ class AppPageHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Image.asset(
-        'assets/images/logo.png',
-        width: 32,
-        color: Colors.white,
-      ),
+      title: AppLogo(),
       leading: IconButton(
         onPressed: () {},
         icon: Icon(Icons.menu),
