@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/app/components/app_floating_action_button.dart';
 import 'package:xb2_flutter/app/components/app_page_bottom.dart';
 import 'package:xb2_flutter/app/components/app_page_header.dart';
 import 'package:xb2_flutter/app/components/app_page_main.dart';
@@ -42,14 +43,7 @@ class _AppState extends State<App> {
             currentIndex: currentAppBottomNavigationBarItem,
             onTap: onTapAppBottomNavigationBarItem,
           ),
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.share_outlined),
-            onPressed: () {
-              print('floating action button');
-            },
-            backgroundColor: Colors.black87,
-            foregroundColor: Colors.white70,
-          ),
+          floatingActionButton: AppFloatingActionButton(),
         ),
       ),
     );
