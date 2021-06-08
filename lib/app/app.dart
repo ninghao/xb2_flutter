@@ -8,27 +8,47 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      home: Scaffold(
-        backgroundColor: Colors.amber,
-        appBar: AppBar(
-          title: Image.asset(
-            'assets/images/logo.png',
-            width: 32,
-            color: Colors.white,
-          ),
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.more_horiz),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          backgroundColor: Colors.amber,
+          appBar: AppBar(
+            title: Image.asset(
+              'assets/images/logo.png',
+              width: 32,
+              color: Colors.white,
             ),
-          ],
-        ),
-        body: Center(
-          child: Text('NINGHAO.CO'),
+            leading: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.menu),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_horiz),
+              ),
+            ],
+            bottom: TabBar(
+              tabs: [
+                Tab(text: '最近'),
+                Tab(text: '热门'),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Icon(
+                Icons.explore_outlined,
+                size: 128,
+                color: Colors.black12,
+              ),
+              Icon(
+                Icons.local_fire_department_outlined,
+                size: 128,
+                color: Colors.black12,
+              ),
+            ],
+          ),
         ),
       ),
     );
