@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/app/components/app_page_bottom.dart';
 import 'package:xb2_flutter/app/components/app_page_header.dart';
 import 'package:xb2_flutter/app/components/app_page_main.dart';
 import 'package:xb2_flutter/app/themes/app_theme.dart';
@@ -37,23 +38,9 @@ class _AppState extends State<App> {
           body: AppPageMain(
             currentIndex: currentAppBottomNavigationBarItem,
           ),
-          bottomNavigationBar: BottomNavigationBar(
+          bottomNavigationBar: AppPageBottom(
             currentIndex: currentAppBottomNavigationBarItem,
             onTap: onTapAppBottomNavigationBarItem,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.explore_outlined),
-                label: '发现',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add_a_photo_outlined),
-                label: '添加',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined),
-                label: '用户',
-              ),
-            ],
           ),
           floatingActionButton: FloatingActionButton(
             child: Icon(Icons.share_outlined),
