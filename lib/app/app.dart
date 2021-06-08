@@ -6,10 +6,11 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Center(
-        child: Icon(
-          Icons.landscape_rounded,
-          color: Colors.amber,
-          size: 128,
+        child: ElevatedButton(
+          child: Text('NINGHAO'),
+          onPressed: () {
+            print('NINGHAO');
+          },
         ),
       ),
     );
