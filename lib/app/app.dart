@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xb2_flutter/app/components/app_page_header.dart';
+import 'package:xb2_flutter/app/components/app_page_main.dart';
 import 'package:xb2_flutter/app/themes/app_theme.dart';
 
 class App extends StatefulWidget {
@@ -22,41 +23,6 @@ class _AppState extends State<App> {
     });
   }
 
-  // 一组页面主体小部件
-  final pageMain = [
-    // 发现
-    TabBarView(
-      children: [
-        Icon(
-          Icons.explore_outlined,
-          size: 128,
-          color: Colors.black12,
-        ),
-        Icon(
-          Icons.local_fire_department_outlined,
-          size: 128,
-          color: Colors.black12,
-        ),
-      ],
-    ),
-    // 添加
-    Center(
-      child: Icon(
-        Icons.add_a_photo_outlined,
-        size: 128,
-        color: Colors.black12,
-      ),
-    ),
-    // 用户
-    Center(
-      child: Icon(
-        Icons.account_circle_outlined,
-        size: 128,
-        color: Colors.black12,
-      ),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -68,7 +34,9 @@ class _AppState extends State<App> {
         child: Scaffold(
           backgroundColor: Colors.amber,
           appBar: showAppBar ? AppPageHeader() : null,
-          body: pageMain.elementAt(currentAppBottomNavigationBarItem),
+          body: AppPageMain(
+            currentIndex: currentAppBottomNavigationBarItem,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentAppBottomNavigationBarItem,
             onTap: onTapAppBottomNavigationBarItem,
