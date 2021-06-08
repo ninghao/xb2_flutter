@@ -8,12 +8,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      home: Center(
-        child: ElevatedButton(
-          child: Text('NINGHAO'),
-          onPressed: () {
-            print('NINGHAO');
-          },
+      home: Scaffold(
+        backgroundColor: Colors.amber,
+        body: Center(
+          child: Text('NINGHAO.CO'),
         ),
       ),
     );
