@@ -10,7 +10,9 @@ class AppPageHeader extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: AppLogo(),
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
         icon: Icon(Icons.menu),
       ),
       actions: [
