@@ -22,6 +22,20 @@ class AppBottomSheet extends StatelessWidget {
     );
   }
 
+  // 显示操作提示
+  void showAppSnackBar(context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('提交成功'),
+        action: SnackBarAction(
+          label: '关闭',
+          onPressed: () {},
+        ),
+        duration: Duration(seconds: 3),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,6 +57,10 @@ class AppBottomSheet extends StatelessWidget {
             // 显示对话框
             final result = await showAppAlertDialog(context);
             print('showAppAlertDialog: $result');
+
+            if (result != null && result) {
+              showAppSnackBar(context);
+            }
           },
         ),
       ),
