@@ -8,7 +8,7 @@ class PlaygroundLayout extends StatelessWidget {
       child: Container(
         color: Colors.greenAccent,
         child: SafeArea(
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
