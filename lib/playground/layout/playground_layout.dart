@@ -17,7 +17,11 @@ class PlaygroundLayout extends StatelessWidget {
               height: double.infinity,
               fit: BoxFit.cover,
             ),
-            AppLogo(size: 64),
+            Positioned(
+              bottom: 24,
+              right: 24,
+              child: AppLogo(size: 64),
+            ),
           ],
         ),
       ),
