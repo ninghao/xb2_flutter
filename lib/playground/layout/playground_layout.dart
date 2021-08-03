@@ -8,7 +8,12 @@ class PlaygroundLayout extends StatelessWidget {
       child: Container(
         color: Colors.greenAccent,
         child: SafeArea(
-          child: PlaygroundLayoutItem('1'),
+          child: Center(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: PlaygroundLayoutItem('1'),
+            ),
+          ),
         ),
       ),
     );
