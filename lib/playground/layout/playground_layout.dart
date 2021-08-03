@@ -9,11 +9,16 @@ class PlaygroundLayout extends StatelessWidget {
         color: Colors.greenAccent,
         child: SafeArea(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              PlaygroundLayoutItem('1'),
-              PlaygroundLayoutItem('2'),
+              Expanded(
+                child: PlaygroundLayoutItem('1'),
+                flex: 2,
+              ),
+              Expanded(
+                child: PlaygroundLayoutItem('2'),
+                flex: 1,
+              ),
               PlaygroundLayoutItem('3'),
             ],
           ),
