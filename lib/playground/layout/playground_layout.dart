@@ -4,9 +4,13 @@ import 'package:xb2_flutter/playground/layout/components/playground_layout_item.
 class PlaygroundLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.greenAccent,
-      child: PlaygroundLayoutItem('1'),
+    return SizedBox.expand(
+      child: Container(
+        color: Colors.greenAccent,
+        child: SafeArea(
+          child: PlaygroundLayoutItem('1'),
+        ),
+      ),
     );
   }
 }
