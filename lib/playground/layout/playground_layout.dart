@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/app/components/app_logo.dart';
 import 'package:xb2_flutter/playground/layout/components/playground_layout_item.dart';
 
 class PlaygroundLayout extends StatelessWidget {
@@ -7,21 +8,17 @@ class PlaygroundLayout extends StatelessWidget {
     return SizedBox.expand(
       child: Container(
         color: Colors.greenAccent,
-        child: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: PlaygroundLayoutItem('1'),
-                flex: 2,
-              ),
-              Expanded(
-                child: PlaygroundLayoutItem('2'),
-                flex: 1,
-              ),
-              PlaygroundLayoutItem('3'),
-            ],
-          ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.network(
+              'https://resources.ninghao.net/images/IMG_2680.JPG',
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            AppLogo(size: 64),
+          ],
         ),
       ),
     );
