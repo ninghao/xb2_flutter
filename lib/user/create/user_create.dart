@@ -12,6 +12,33 @@ class _UserCreateState extends State<UserCreate> {
   final nameFieldKey = GlobalKey<FormFieldState>();
   final passwordFieldKey = GlobalKey<FormFieldState>();
 
+  final nameFieldController = TextEditingController();
+  final passwordFieldController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    nameFieldController.dispose();
+    passwordFieldController.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    nameFieldController.addListener(() {
+      print('用户 ${nameFieldController.text}');
+    });
+
+    passwordFieldController.addListener(() {
+      print('密码 ${passwordFieldController.text}');
+    });
+
+    nameFieldController.text = 'wanghao';
+    passwordFieldController.text = '123456';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,6 +55,7 @@ class _UserCreateState extends State<UserCreate> {
         SizedBox(height: 32),
         TextFormField(
           key: nameFieldKey,
+          controller: nameFieldController,
           decoration: InputDecoration(
             labelText: '用户',
           ),
@@ -46,6 +74,7 @@ class _UserCreateState extends State<UserCreate> {
         SizedBox(height: 32),
         TextFormField(
           key: passwordFieldKey,
+          controller: passwordFieldController,
           obscureText: true,
           decoration: InputDecoration(
             labelText: '密码',
