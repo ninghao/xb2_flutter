@@ -34,6 +34,14 @@ class _UserCreateState extends State<UserCreate> {
           onChanged: (value) {
             name = value;
           },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return '请填写用户名';
+            }
+
+            return null;
+          },
         ),
         SizedBox(height: 32),
         TextFormField(
@@ -45,6 +53,18 @@ class _UserCreateState extends State<UserCreate> {
           onChanged: (value) {
             password = value;
           },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return '请填写用户密码';
+            }
+
+            if (value.isNotEmpty && value.length < 6) {
+              return '请设置 6 位以上的密码';
+            }
+
+            return null;
+          },
         ),
         SizedBox(height: 32),
         ElevatedButton(
@@ -54,6 +74,8 @@ class _UserCreateState extends State<UserCreate> {
           ),
           child: Text('注册用户'),
           onPressed: () {
+            nameFieldKey.currentState!.validate();
+            passwordFieldKey.currentState!.validate();
             print(
                 '注册用户：用户 ${nameFieldKey.currentState!.value}, 密码 ${passwordFieldKey.currentState!.value}');
           },
