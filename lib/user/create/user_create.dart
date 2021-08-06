@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
-class UserCreate extends StatelessWidget {
+class UserCreate extends StatefulWidget {
+  @override
+  _UserCreateState createState() => _UserCreateState();
+}
+
+class _UserCreateState extends State<UserCreate> {
+  String? name;
+  String? password;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,6 +27,9 @@ class UserCreate extends StatelessWidget {
           decoration: InputDecoration(
             labelText: '用户',
           ),
+          onChanged: (value) {
+            name = value;
+          },
         ),
         SizedBox(height: 32),
         TextField(
@@ -26,6 +37,9 @@ class UserCreate extends StatelessWidget {
           decoration: InputDecoration(
             labelText: '密码',
           ),
+          onChanged: (value) {
+            password = value;
+          },
         ),
         SizedBox(height: 32),
         ElevatedButton(
@@ -35,7 +49,7 @@ class UserCreate extends StatelessWidget {
           ),
           child: Text('注册用户'),
           onPressed: () {
-            print('注册用户');
+            print('注册用户：用户 $name, 密码 $password');
           },
         ),
       ],
