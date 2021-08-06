@@ -9,6 +9,9 @@ class _UserCreateState extends State<UserCreate> {
   String? name;
   String? password;
 
+  final nameFieldKey = GlobalKey<FormFieldState>();
+  final passwordFieldKey = GlobalKey<FormFieldState>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +26,8 @@ class _UserCreateState extends State<UserCreate> {
           ),
         ),
         SizedBox(height: 32),
-        TextField(
+        TextFormField(
+          key: nameFieldKey,
           decoration: InputDecoration(
             labelText: '用户',
           ),
@@ -32,7 +36,8 @@ class _UserCreateState extends State<UserCreate> {
           },
         ),
         SizedBox(height: 32),
-        TextField(
+        TextFormField(
+          key: passwordFieldKey,
           obscureText: true,
           decoration: InputDecoration(
             labelText: '密码',
@@ -49,7 +54,8 @@ class _UserCreateState extends State<UserCreate> {
           ),
           child: Text('注册用户'),
           onPressed: () {
-            print('注册用户：用户 $name, 密码 $password');
+            print(
+                '注册用户：用户 ${nameFieldKey.currentState!.value}, 密码 ${passwordFieldKey.currentState!.value}');
           },
         ),
       ],
