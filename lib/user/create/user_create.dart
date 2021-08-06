@@ -15,6 +15,19 @@ class UserCreate extends StatelessWidget {
           ),
         ),
         SizedBox(height: 32),
+        TextField(
+          decoration: InputDecoration(
+            labelText: '用户',
+          ),
+        ),
+        SizedBox(height: 32),
+        TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+            labelText: '密码',
+          ),
+        ),
+        SizedBox(height: 32),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             textStyle: TextStyle(fontSize: 20),
