@@ -7,6 +7,7 @@ class PlaygroundInput extends StatelessWidget {
     return Container(
       color: Colors.white,
       padding: EdgeInsets.all(32),
+      width: double.infinity,
       child: UserCreate(),
     );
   }
