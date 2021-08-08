@@ -16,9 +16,20 @@ class _AppState extends State<App> {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       initialRoute: '/',
-      routes: {
-        '/': (context) => AppHome(),
-        '/about': (context) => About(),
+      // routes: {
+      //   '/': (context) => AppHome(),
+      //   '/about': (context) => About(),
+      // },
+      onGenerateRoute: (settings) {
+        print(settings);
+
+        if (settings.name == '/') {
+          return MaterialPageRoute(builder: (context) => AppHome());
+        }
+
+        if (settings.name == '/about') {
+          return MaterialPageRoute(builder: (context) => About());
+        }
       },
     );
   }

@@ -9,7 +9,11 @@ class PlaygroundRouting extends StatelessWidget {
         child: TextButton(
           child: Text('查看宁皓网介绍'),
           onPressed: () {
-            Navigator.pushNamed(context, '/about');
+            Navigator.pushNamed(
+              context,
+              '/about',
+              arguments: {'user': 'wanghao'},
+            );
           },
         ),
       ),
