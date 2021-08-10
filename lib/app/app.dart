@@ -14,7 +14,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Provider(
+    return ChangeNotifierProvider(
       create: (context) => AuthModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

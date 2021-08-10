@@ -5,7 +5,7 @@ import 'package:xb2_flutter/auth/auth_model.dart';
 class AuthLoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final authModel = Provider.of<AuthModel>(context);
+    final authModel = Provider.of<AuthModel>(context, listen: true);
 
     final loginButton = ElevatedButton(
       child: Text('登录'),
@@ -16,8 +16,17 @@ class AuthLoginForm extends StatelessWidget {
       },
     );
 
+    final logoutButton = ElevatedButton(
+      child: Text('退出登录'),
+      onPressed: () {
+        print('已登录：${authModel.isLoggedIn}');
+        authModel.logout();
+        print('已登录：${authModel.isLoggedIn}');
+      },
+    );
+
     return Container(
-      child: loginButton,
+      child: authModel.isLoggedIn ? logoutButton : loginButton,
     );
   }
 }
