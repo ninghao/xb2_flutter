@@ -21,30 +21,18 @@ class _AppState extends State<App> {
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         initialRoute: '/',
-        // routes: {
-        //   '/': (context) => AppHome(),
-        //   '/about': (context) => About(),
-        // },
-        onGenerateRoute: (settings) {
-          print(settings);
-
-          if (settings.name == '/') {
-            return MaterialPageRoute(builder: (context) => AppHome());
-          }
-
-          if (settings.name == '/about') {
-            return MaterialPageRoute(builder: (context) => About());
-          }
-
-          final uri = Uri.parse(settings.name ?? '');
-
-          // posts/:postId
-          if (uri.pathSegments.length == 2 &&
-              uri.pathSegments.first == 'posts') {
-            final postId = uri.pathSegments[1];
-            return MaterialPageRoute(builder: (context) => PostShow(postId));
-          }
-        },
+        home: Navigator(
+          pages: [
+            MaterialPage(
+              key: ValueKey('AppHome'),
+              child: AppHome(),
+            ),
+            MaterialPage(
+              key: ValueKey('About'),
+              child: About(),
+            ),
+          ],
+        ),
       ),
     );
   }
