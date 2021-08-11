@@ -38,6 +38,15 @@ class _AppState extends State<App> {
                   child: About(),
                 ),
             ],
+            onPopPage: (route, result) {
+              if (!route.didPop(result)) {
+                return false;
+              }
+
+              state.setPageName('');
+
+              return true;
+            },
           ),
         ),
       ),
