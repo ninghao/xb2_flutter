@@ -9,7 +9,19 @@ class AppRouterDelegate extends RouterDelegate
   final AppModel appModel;
 
   AppRouterDelegate(this.appModel)
-      : _navigatorKey = GlobalKey<NavigatorState>();
+      : _navigatorKey = GlobalKey<NavigatorState>() {
+    // 监听 appModel
+    appModel.addListener(notifyListeners);
+  }
+
+  // 销毁资源
+  @override
+  void dispose() {
+    super.dispose();
+
+    // 取消监听 appModel
+    appModel.removeListener(notifyListeners);
+  }
 
   // 获取 Navigator 使用的 Key
   @override
