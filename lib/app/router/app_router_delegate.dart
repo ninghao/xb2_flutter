@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:xb2_flutter/app/app_model.dart';
 import 'package:xb2_flutter/app/components/app_home.dart';
+import 'package:xb2_flutter/app/router/app_route_configuration.dart';
 import 'package:xb2_flutter/playground/routing/components/about.dart';
 
-class AppRouterDelegate extends RouterDelegate
+class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
   final _navigatorKey;
   final AppModel appModel;
