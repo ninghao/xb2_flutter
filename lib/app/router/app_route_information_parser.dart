@@ -15,4 +15,16 @@ class AppRouteInformationParser
 
     return AppRouteConfiguration.home();
   }
+
+  // 恢复路由信息
+  @override
+  restoreRouteInformation(configuration) {
+    if (configuration.isHomePage) {
+      return RouteInformation(location: '/');
+    }
+
+    if (configuration.isAboutPage) {
+      return RouteInformation(location: '/about');
+    }
+  }
 }
