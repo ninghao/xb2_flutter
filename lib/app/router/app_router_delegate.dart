@@ -32,6 +32,15 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
   @override
   setNewRoutePath(configuration) {
     print('设置新路由地址 setNewRoutePath');
+    print(configuration.pageName);
+
+    if (configuration.isHomePage) {
+      appModel.setPageName('');
+    }
+
+    if (configuration.isAboutPage) {
+      appModel.setPageName('About');
+    }
 
     return Future.value();
   }
