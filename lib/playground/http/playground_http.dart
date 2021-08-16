@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -44,7 +45,7 @@ class _PlaygroundHttpState extends State<PlaygroundHttp> {
   }
 
   login() async {
-    final name = '王二小';
+    final name = '王小二';
     final password = '123456';
 
     final uri = Uri.parse('https://nid-node.ninghao.co/login');
@@ -65,6 +66,34 @@ class _PlaygroundHttpState extends State<PlaygroundHttp> {
         currentUserToken = responseBody['token'];
       });
     }
+  }
+
+  updateUser() async {
+    final name = '王小二';
+    final password = '123456';
+
+    final uri = Uri.parse('https://nid-node.ninghao.co/users');
+
+    final headers = {
+      'Authorization': 'Bearer $currentUserToken',
+      HttpHeaders.contentTypeHeader: 'application/json',
+    };
+
+    final body = jsonEncode({
+      'validate': {
+        'password': password,
+      },
+      'update': {'name': name},
+    });
+
+    final response = await http.patch(
+      uri,
+      headers: headers,
+      body: body,
+    );
+
+    print('状态码 ${response.statusCode}');
+    print('响应主体 ${response.body}');
   }
 
   @override
@@ -91,6 +120,10 @@ class _PlaygroundHttpState extends State<PlaygroundHttp> {
           ElevatedButton(
             child: Text('用户登录'),
             onPressed: login,
+          ),
+          ElevatedButton(
+            child: Text('更新用户'),
+            onPressed: updateUser,
           ),
         ],
       ),
