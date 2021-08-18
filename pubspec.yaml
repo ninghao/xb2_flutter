@@ -30,6 +30,7 @@ dependencies:
   provider: ^5.0.0
   http: ^0.13.3
   json_annotation: ^4.0.1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   build_runner: ^2.1.1
@@ -50,6 +51,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - .env
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
