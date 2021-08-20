@@ -20,7 +20,10 @@ class _PostListState extends State<PostList> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<PostIndexModel>();
-    print(model.posts);
+
+    model.posts!.forEach((post) {
+      print(post.toJson());
+    });
 
     return Container();
   }

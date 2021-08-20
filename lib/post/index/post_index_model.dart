@@ -1,19 +1,32 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:xb2_flutter/app/app_config.dart';
+import 'package:xb2_flutter/post/post.dart';
 
 class PostIndexModel extends ChangeNotifier {
-  dynamic posts;
+  List<Post>? posts;
 
   // PostIndexModel() {
   //   getPosts();
   // }
 
-  getPosts() async {
+  List<Post> parsePosts(responseBody) {
+    final List<Post> parsed = jsonDecode(responseBody)
+        .map<Post>((item) => Post.fromJson(item))
+        .toList();
+
+    return parsed;
+  }
+
+  Future<List<Post>> getPosts() async {
     final uri = Uri.parse('${AppConfig.apiBaseUrl}/posts');
     final response = await http.get(uri);
-
-    posts = response.body;
+    final parsed = parsePosts(response.body);
+    posts = parsed;
     notifyListeners();
+
+    return parsed;
   }
 }
