@@ -105,5 +105,48 @@
       "}"
     ],
     "description": "Build Method"
+  },
+  "JsonSerializable Import": {
+    "prefix": "jsli",
+    "body": [
+      "import 'package:json_annotation/json_annotation.dart';",
+      "part '${1:name}.g.dart';",
+      "",
+      "@JsonSerializable(explicitToJson: true)",
+      "class ${2:Name} {",
+      "  ${3}",
+      "",
+      "  ${2:Name}({",
+      "    ${4}",
+      "  });",
+      "",
+      "  factory ${2:Name}.fromJson(Map<String, dynamic> json) {",
+      "    return _$${2:Name}FromJson(json);",
+      "  }",
+      "",
+      "  Map<String, dynamic> toJson() => _$${2:Name}ToJson(this);",
+      "}"
+    ],
+    "description": "JsonSerializable Import"
+  },
+  "JsonSerializable": {
+    "prefix": "jsl",
+    "body": [
+      "@JsonSerializable(explicitToJson: true)",
+      "class ${1:Name} {",
+      "  ${2}",
+      "",
+      "  ${1:Name}({",
+      "    ${3}",
+      "  });",
+      "",
+      "  factory ${1:Name}.fromJson(Map<String, dynamic> json) {",
+      "    return _$${1:Name}FromJson(json);",
+      "  }",
+      "",
+      "  Map<String, dynamic> toJson() => _$${1:Name}ToJson(this);",
+      "}"
+    ],
+    "description": "JsonSerializable Class"
   }
 }
