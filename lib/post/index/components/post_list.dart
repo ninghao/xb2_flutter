@@ -20,11 +20,24 @@ class _PostListState extends State<PostList> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<PostIndexModel>();
+    final posts = model.posts ?? [];
 
-    model.posts!.forEach((post) {
-      print(post.toJson());
-    });
+    final noContent = Center(
+      child: Container(
+        child: Text('暂无内容'),
+      ),
+    );
 
-    return Container();
+    final list = ListView.builder(
+      itemCount: posts.length,
+      itemBuilder: (context, index) {
+        return Text(
+          posts[index].title!,
+          style: Theme.of(context).textTheme.headline6,
+        );
+      },
+    );
+
+    return posts.length == 0 ? noContent : list;
   }
 }
