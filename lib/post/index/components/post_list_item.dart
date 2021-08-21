@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/post/components/post_media.dart';
 import 'package:xb2_flutter/post/post.dart';
 
 class PostListItem extends StatelessWidget {
@@ -14,6 +15,10 @@ class PostListItem extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16),
       child: Column(
         children: [
+          PostMedia(post: item),
+          SizedBox(
+            height: 8,
+          ),
           Text(
             item.title!,
             style: Theme.of(context).textTheme.headline6,
