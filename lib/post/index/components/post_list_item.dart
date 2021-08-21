@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/post/components/post_header.dart';
 import 'package:xb2_flutter/post/components/post_media.dart';
 import 'package:xb2_flutter/post/post.dart';
 
@@ -19,10 +20,7 @@ class PostListItem extends StatelessWidget {
           SizedBox(
             height: 8,
           ),
-          Text(
-            item.title!,
-            style: Theme.of(context).textTheme.headline6,
-          ),
+          PostHeader(post: item),
         ],
       ),
     );
