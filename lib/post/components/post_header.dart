@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/post/components/post_actions.dart';
 import 'package:xb2_flutter/post/post.dart';
 import 'package:xb2_flutter/user/components/user_avatar.dart';
 
@@ -19,18 +20,21 @@ class PostHeader extends StatelessWidget {
             user: post.user!,
           ),
           SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                post.title!,
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              Text(
-                post.user!.name!,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  post.title!,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                Text(
+                  post.user!.name!,
+                ),
+              ],
+            ),
           ),
+          PostActions(post: post),
         ],
       ),
     );
