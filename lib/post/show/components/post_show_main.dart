@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/post/components/post_content.dart';
 import 'package:xb2_flutter/post/components/post_header.dart';
 import 'package:xb2_flutter/post/components/post_media.dart';
 import 'package:xb2_flutter/post/post.dart';
@@ -48,6 +49,11 @@ class PostShowMain extends StatelessWidget {
       endIndent: 16,
     );
 
+    final postContent = Container(
+      padding: EdgeInsets.all(16),
+      child: PostContent(post: post),
+    );
+
     return SingleChildScrollView(
       child: Container(
         child: Column(
@@ -56,6 +62,7 @@ class PostShowMain extends StatelessWidget {
             postMedia,
             postHeader,
             divider,
+            if (post.content != null) postContent,
           ],
         ),
       ),
