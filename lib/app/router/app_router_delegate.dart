@@ -34,15 +34,17 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
   // 设置新路由地址
   @override
   setNewRoutePath(configuration) async {
-    print('设置新路由地址 setNewRoutePath');
-    print(configuration.pageName);
-
     if (configuration.isHomePage) {
       appModel.setPageName('');
     }
 
     if (configuration.isAboutPage) {
       appModel.setPageName('About');
+    }
+
+    if (configuration.isPostShow) {
+      appModel.setPageName('PostShow');
+      appModel.setResourceId('${configuration.resourceId}');
     }
   }
 
@@ -55,6 +57,10 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
 
     if (appModel.pageName == 'About') {
       return AppRouteConfiguration.about();
+    }
+
+    if (appModel.pageName == 'PostShow') {
+      return AppRouteConfiguration.postShow(appModel.resourceId);
     }
   }
 
