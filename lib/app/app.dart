@@ -8,6 +8,7 @@ import 'package:xb2_flutter/app/themes/app_theme.dart';
 import 'package:xb2_flutter/auth/auth_model.dart';
 import 'package:xb2_flutter/playground/routing/components/about.dart';
 import 'package:xb2_flutter/post/show/post_show.dart';
+import 'package:xb2_flutter/post/show/post_show_model.dart';
 
 class App extends StatefulWidget {
   @override
@@ -23,6 +24,9 @@ class _AppState extends State<App> {
       providers: [
         ChangeNotifierProvider<AuthModel>(create: (context) => AuthModel()),
         ChangeNotifierProvider<AppModel>(create: (context) => appModel),
+        ChangeNotifierProvider<PostShowModel>(
+          create: (context) => PostShowModel(),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
