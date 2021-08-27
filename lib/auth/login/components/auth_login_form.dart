@@ -1,32 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:xb2_flutter/app/components/app_button.dart';
+import 'package:xb2_flutter/app/components/app_header_text.dart';
+import 'package:xb2_flutter/app/components/app_password_field.dart';
+import 'package:xb2_flutter/app/components/app_text_field.dart';
 import 'package:xb2_flutter/auth/auth_model.dart';
 
-class AuthLoginForm extends StatelessWidget {
+class AuthLoginForm extends StatefulWidget {
+  @override
+  _AuthLoginFormState createState() => _AuthLoginFormState();
+}
+
+class _AuthLoginFormState extends State<AuthLoginForm> {
+  String? name;
+  String? password;
+
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final authModel = Provider.of<AuthModel>(context, listen: true);
 
-    final loginButton = ElevatedButton(
-      child: Text('登录'),
-      onPressed: () {
-        print('已登录：${authModel.isLoggedIn}');
-        authModel.login();
-        print('已登录：${authModel.isLoggedIn}');
+    // 标题
+    final header = AppHeaderText('用户登录');
+
+    // 用户
+    final nameField = AppTextField(
+      labelText: '用户',
+      onChanged: (value) {
+        name = value;
       },
     );
 
-    final logoutButton = ElevatedButton(
-      child: Text('退出登录'),
-      onPressed: () {
-        print('已登录：${authModel.isLoggedIn}');
-        authModel.logout();
-        print('已登录：${authModel.isLoggedIn}');
+    // 密码
+    final passwordField = AppPasswordField(
+      onChanged: (value) {
+        password = value;
       },
+    );
+
+    // 提交
+    final submitButton = AppButton(
+      onPressed: () {},
+      text: '确定登录',
     );
 
     return Container(
-      child: authModel.isLoggedIn ? logoutButton : loginButton,
+      padding: EdgeInsets.all(16),
+      child: Form(
+        key: formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            header,
+            nameField,
+            passwordField,
+            submitButton,
+          ],
+        ),
+      ),
     );
   }
 }
