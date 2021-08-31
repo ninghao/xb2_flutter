@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:xb2_flutter/app/exceptions/http_exception.dart';
+import 'package:xb2_flutter/like/create/like_create_model.dart';
 import 'package:xb2_flutter/post/post.dart';
 
 class PostActions extends StatelessWidget {
@@ -8,10 +11,30 @@ class PostActions extends StatelessWidget {
     required this.post,
   });
 
+  increaseTotalLikes() {
+    post.totalLikes = post.totalLikes! + 1;
+  }
+
+  liked() {
+    post.liked = 1;
+    increaseTotalLikes();
+  }
+
   @override
   Widget build(BuildContext context) {
-    onTapLikeAction() {
-      print('onTapLikeAction');
+    final likeCreateModel = context.watch<LikeCreateModel>();
+
+    onTapLikeAction() async {
+      if (post.liked == 0) {
+        try {
+          await likeCreateModel.createUserLikePost(post.id!);
+          liked();
+        } on HttpException catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(e.message)),
+          );
+        }
+      }
     }
 
     final likeAction = Row(
