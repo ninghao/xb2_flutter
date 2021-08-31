@@ -11,6 +11,7 @@ import 'package:xb2_flutter/app/router/app_router_delegate.dart';
 import 'package:xb2_flutter/app/themes/app_theme.dart';
 import 'package:xb2_flutter/auth/auth.dart';
 import 'package:xb2_flutter/auth/auth_model.dart';
+import 'package:xb2_flutter/like/like_provider.dart';
 import 'package:xb2_flutter/playground/routing/components/about.dart';
 import 'package:xb2_flutter/post/post_provider.dart';
 import 'package:xb2_flutter/post/show/post_show.dart';
@@ -69,6 +70,7 @@ class _AppState extends State<App> {
         ChangeNotifierProvider.value(value: appModel),
         ...appPrividers,
         ...postProviders,
+        ...likeProviders,
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
