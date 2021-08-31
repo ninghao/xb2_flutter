@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xb2_flutter/app/app_config.dart';
 import 'package:xb2_flutter/app/exceptions/http_exception.dart';
 import 'package:xb2_flutter/auth/auth.dart';
@@ -11,6 +12,16 @@ class AuthModel extends ChangeNotifier {
   String name = '';
   String token = '';
   bool get isLoggedIn => token.isNotEmpty;
+
+  storeAuth(Auth auth) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('auth', jsonEncode(auth));
+  }
+
+  removeAuth() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('auth');
+  }
 
   Future<Auth> login(LoginData data) async {
     final uri = Uri.parse('${AppConfig.apiBaseUrl}/login');
@@ -23,6 +34,8 @@ class AuthModel extends ChangeNotifier {
       userId = auth.id.toString();
       name = auth.name;
       token = auth.token;
+
+      storeAuth(auth);
       notifyListeners();
 
       return auth;
@@ -35,6 +48,8 @@ class AuthModel extends ChangeNotifier {
     userId = '';
     name = '';
     token = '';
+
+    removeAuth();
     notifyListeners();
   }
 }
