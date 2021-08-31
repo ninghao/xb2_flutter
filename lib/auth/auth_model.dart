@@ -13,6 +13,14 @@ class AuthModel extends ChangeNotifier {
   String token = '';
   bool get isLoggedIn => token.isNotEmpty;
 
+  setAuth(Auth auth) {
+    userId = '${auth.id}';
+    name = auth.name;
+    token = auth.token;
+
+    notifyListeners();
+  }
+
   storeAuth(Auth auth) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('auth', jsonEncode(auth));
