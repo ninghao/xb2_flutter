@@ -10,9 +10,18 @@ class PostActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    onTapLikeAction() {
+      print('onTapLikeAction');
+    }
+
     final likeAction = Row(
       children: [
-        Icon(post.liked == 0 ? Icons.favorite_border_outlined : Icons.favorite),
+        GestureDetector(
+          child: Icon(post.liked == 0
+              ? Icons.favorite_border_outlined
+              : Icons.favorite),
+          onTap: onTapLikeAction,
+        ),
         if (post.totalLikes != 0)
           Container(
             padding: EdgeInsets.only(left: 4),
