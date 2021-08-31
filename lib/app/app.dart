@@ -17,13 +17,14 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   final AppModel appModel = AppModel();
+  final AuthModel authModel = AuthModel();
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AuthModel>(create: (context) => AuthModel()),
-        ChangeNotifierProvider<AppModel>(create: (context) => appModel),
+        ChangeNotifierProvider.value(value: authModel),
+        ChangeNotifierProvider.value(value: appModel),
         ChangeNotifierProvider<PostShowModel>(
           create: (context) => PostShowModel(),
         ),
