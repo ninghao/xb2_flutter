@@ -22,8 +22,8 @@ class PostIndexModel extends ChangeNotifier {
     return parsed;
   }
 
-  Future<List<Post>> getPosts() async {
-    final uri = Uri.parse('${AppConfig.apiBaseUrl}/posts');
+  Future<List<Post>> getPosts({required String sort}) async {
+    final uri = Uri.parse('${AppConfig.apiBaseUrl}/posts?sort=$sort');
     final response = await appService.apiHttpClient.get(uri);
     final parsed = parsePosts(response.body);
     posts = parsed;
