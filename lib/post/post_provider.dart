@@ -14,6 +14,7 @@ final postIndexProvider =
     return PostIndexModel(
       appService: appService,
       posts: postIndexModel?.posts,
+      layout: postIndexModel?.layout,
     );
   },
 );

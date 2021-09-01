@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xb2_flutter/post/index/components/post_list_item.dart';
 import 'package:xb2_flutter/post/index/post_index_model.dart';
 
@@ -15,6 +16,19 @@ class PostList extends StatefulWidget {
 }
 
 class _PostListState extends State<PostList> {
+  restoreLayout() async {
+    final prefs = await SharedPreferences.getInstance();
+    final data = prefs.getString('postListLayout');
+
+    if (data != null) {
+      PostListLayout layout = PostListLayout.values.firstWhere((item) {
+        return item.toString() == data;
+      });
+
+      context.read<PostIndexModel>().setLayout(layout);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -24,6 +38,9 @@ class _PostListState extends State<PostList> {
             sort: widget.sort ?? 'latest',
           );
     });
+
+    // 恢复布局
+    restoreLayout();
   }
 
   @override
