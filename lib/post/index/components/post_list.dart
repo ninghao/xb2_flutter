@@ -37,13 +37,33 @@ class _PostListState extends State<PostList> {
       ),
     );
 
-    final list = ListView.builder(
+    final stackList = ListView.builder(
       itemCount: posts.length,
       itemBuilder: (context, index) {
         return PostListItem(item: posts[index]);
       },
     );
 
-    return posts.length == 0 ? noContent : list;
+    final gridList = GridView.builder(
+      itemCount: posts.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
+      ),
+      itemBuilder: (context, index) {
+        return PostListItem(
+          item: posts[index],
+        );
+      },
+    );
+
+    Widget postList = stackList;
+
+    if (model.layout == PostListLayout.grid) {
+      postList = gridList;
+    }
+
+    return posts.length == 0 ? noContent : postList;
   }
 }
