@@ -54,6 +54,7 @@ class _PostListState extends State<PostList> {
       itemBuilder: (context, index) {
         return PostListItem(
           item: posts[index],
+          layout: PostListLayout.grid,
         );
       },
     );
