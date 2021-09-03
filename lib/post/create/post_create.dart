@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:xb2_flutter/post/create/components/post_create_form.dart';
 
 class PostCreate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Icon(
-        Icons.add_a_photo_outlined,
-        size: 128,
-        color: Colors.black12,
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: SafeArea(
+          child: PostCreateForm(),
+        ),
       ),
     );
   }
