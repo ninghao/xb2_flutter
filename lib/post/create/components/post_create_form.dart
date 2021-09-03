@@ -4,6 +4,7 @@ import 'package:xb2_flutter/app/components/app_button.dart';
 import 'package:xb2_flutter/app/components/app_text_field.dart';
 import 'package:xb2_flutter/app/exceptions/app_exception.dart';
 import 'package:xb2_flutter/app/exceptions/validate_exception.dart';
+import 'package:xb2_flutter/post/create/components/post_create_media.dart';
 import 'package:xb2_flutter/post/create/post_create_model.dart';
 
 class PostCreateForm extends StatefulWidget {
@@ -103,6 +104,7 @@ class _PostCreateFormState extends State<PostCreateForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          PostCreateMedia(),
           titleField,
           contentField,
           submitButton,
