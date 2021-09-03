@@ -58,6 +58,12 @@ class _PostCreateMediaState extends State<PostCreateMedia> {
           )
         : null;
 
+    final indicator = postCreateModel.loading
+        ? CircularProgressIndicator(
+            strokeWidth: 2,
+          )
+        : null;
+
     return Container(
       padding: EdgeInsets.symmetric(vertical: 24),
       child: Stack(
@@ -66,6 +72,7 @@ class _PostCreateMediaState extends State<PostCreateMedia> {
           imagePlaceholder,
           if (selectedImage != null) selectedImage,
           imagePlaceholderMask,
+          if (indicator != null) indicator,
         ],
       ),
     );
