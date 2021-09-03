@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xb2_flutter/app/components/app_button.dart';
 import 'package:xb2_flutter/app/components/app_text_field.dart';
+import 'package:xb2_flutter/app/exceptions/app_exception.dart';
+import 'package:xb2_flutter/app/exceptions/validate_exception.dart';
 import 'package:xb2_flutter/post/create/post_create_model.dart';
 
 class PostCreateForm extends StatefulWidget {
@@ -47,8 +49,47 @@ class _PostCreateFormState extends State<PostCreateForm> {
       },
     );
 
+    // 验证
+    validate() {
+      final isValid = formKey.currentState!.validate();
+
+      if (!isValid) {
+        throw ValidateException();
+      }
+    }
+
+    // 重置
+    reset() {
+      setState(() {
+        titleFieldController.text = '';
+        contentFieldController.text = '';
+        canValidate = false;
+        postCreateModel.reset();
+      });
+    }
+
     // 提交创建内容
-    submitCreatePost() async {}
+    submitCreatePost() async {
+      try {
+        validate();
+
+        postCreateModel.setLoading(true);
+        final postId = await postCreateModel.createPost();
+        print(postId);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('内容发布成功！')),
+        );
+
+        reset();
+      } on AppException catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message)),
+        );
+      } finally {
+        postCreateModel.setLoading(false);
+      }
+    }
 
     // 提交按钮
     final submitButton = AppButton(
