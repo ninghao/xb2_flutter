@@ -27,6 +27,13 @@ class _PostCreateFormState extends State<PostCreateForm> {
   Widget build(BuildContext context) {
     final postCreateModel = context.watch<PostCreateModel>();
 
+    // 选择文件后设置标题
+    if (postCreateModel.selectedFile != null && postCreateModel.title == null) {
+      final title = postCreateModel.selectedFile!.name.split('.')[0];
+      titleFieldController.text = title;
+      postCreateModel.setTitle(title);
+    }
+
     // 标题字段
     final titleField = AppTextField(
       labelText: '标题',
