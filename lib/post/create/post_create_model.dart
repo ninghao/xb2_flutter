@@ -42,6 +42,12 @@ class PostCreateModel extends ChangeNotifier {
     selectedFile = null;
   }
 
+  bool hasData() {
+    return title != null || content != null || selectedFile != null
+        ? true
+        : false;
+  }
+
   Future<int> createPost() async {
     final uri = Uri.parse('${AppConfig.apiBaseUrl}/posts');
 

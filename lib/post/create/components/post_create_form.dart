@@ -24,6 +24,22 @@ class _PostCreateFormState extends State<PostCreateForm> {
   final contentFieldController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+
+    final title = context.read<PostCreateModel>().title;
+    final content = context.read<PostCreateModel>().content;
+
+    if (title != null) {
+      titleFieldController.text = title;
+    }
+
+    if (content != null) {
+      contentFieldController.text = content;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final postCreateModel = context.watch<PostCreateModel>();
 
