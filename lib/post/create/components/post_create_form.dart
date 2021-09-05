@@ -99,7 +99,7 @@ class _PostCreateFormState extends State<PostCreateForm> {
 
         postCreateModel.setLoading(true);
         final postId = await postCreateModel.createPost();
-        print(postId);
+        await postCreateModel.createFile(postId: postId);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('内容发布成功！')),

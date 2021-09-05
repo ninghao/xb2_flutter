@@ -27,7 +27,7 @@ class ApiHttpClient extends http.BaseClient {
   }) async {
     final uri = Uri.parse('${AppConfig.apiBaseUrl}/files?post=$postId');
     final request = http.MultipartRequest('POST', uri);
-    request.headers.putIfAbsent('Autorization', () => 'Bearer $token');
+    request.headers.putIfAbsent('Authorization', () => 'Bearer $token');
 
     final multipartFile = await http.MultipartFile.fromPath(
       'file',
