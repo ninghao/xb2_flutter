@@ -72,6 +72,33 @@ const appBarThemeDark = AppBarTheme(
   ),
 );
 
+// 标签栏主题
+const tabBarTheme = TabBarTheme(
+  labelColor: Colors.black,
+  indicatorSize: TabBarIndicatorSize.label,
+  indicator: BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        width: 1,
+        color: Colors.black,
+      ),
+    ),
+  ),
+);
+
+const tabBarThemeDark = TabBarTheme(
+  labelColor: Colors.grey,
+  indicatorSize: TabBarIndicatorSize.label,
+  indicator: BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        width: 1,
+        color: Colors.grey,
+      ),
+    ),
+  ),
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -85,6 +112,7 @@ class AppTheme {
     iconTheme: iconTheme,
     textTheme: textTheme,
     appBarTheme: appBarTheme,
+    tabBarTheme: tabBarTheme,
   );
 
   // 暗色主题
@@ -99,5 +127,6 @@ class AppTheme {
     iconTheme: iconThemeDark,
     textTheme: textThemeDark,
     appBarTheme: appBarThemeDark,
+    tabBarTheme: tabBarThemeDark,
   );
 }
