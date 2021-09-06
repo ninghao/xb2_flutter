@@ -43,6 +43,35 @@ const textThemeDark = TextTheme(
   ),
 );
 
+// 应用栏主题
+const appBarTheme = AppBarTheme(
+  elevation: 1,
+  backgroundColor: Colors.white,
+  iconTheme: IconThemeData(
+    color: Colors.black,
+  ),
+  textTheme: TextTheme(
+    headline6: TextStyle(
+      color: Colors.black,
+      fontSize: 20,
+    ),
+  ),
+);
+
+const appBarThemeDark = AppBarTheme(
+  elevation: 1,
+  backgroundColor: Color(0xff2e2e2e),
+  iconTheme: IconThemeData(
+    color: Colors.grey,
+  ),
+  textTheme: TextTheme(
+    headline6: TextStyle(
+      color: Colors.grey,
+      fontSize: 20,
+    ),
+  ),
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -55,6 +84,7 @@ class AppTheme {
     scaffoldBackgroundColor: primaryBackgroundColor,
     iconTheme: iconTheme,
     textTheme: textTheme,
+    appBarTheme: appBarTheme,
   );
 
   // 暗色主题
@@ -68,5 +98,6 @@ class AppTheme {
     scaffoldBackgroundColor: primaryBackgroundColorDark,
     iconTheme: iconThemeDark,
     textTheme: textThemeDark,
+    appBarTheme: appBarThemeDark,
   );
 }
