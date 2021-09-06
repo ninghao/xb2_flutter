@@ -99,6 +99,20 @@ const tabBarThemeDark = TabBarTheme(
   ),
 );
 
+// 底部导航栏主题
+const bottomNavigationBarTheme = BottomNavigationBarThemeData(
+  elevation: 1,
+  showSelectedLabels: true,
+  type: BottomNavigationBarType.fixed,
+  unselectedItemColor: Colors.black,
+  selectedItemColor: primaryColor,
+);
+
+final bottomNavigationBarThemeDark = bottomNavigationBarTheme.copyWith(
+  unselectedItemColor: Colors.grey,
+  selectedItemColor: primaryColorDark,
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -113,6 +127,7 @@ class AppTheme {
     textTheme: textTheme,
     appBarTheme: appBarTheme,
     tabBarTheme: tabBarTheme,
+    bottomNavigationBarTheme: bottomNavigationBarTheme,
   );
 
   // 暗色主题
@@ -128,5 +143,6 @@ class AppTheme {
     textTheme: textThemeDark,
     appBarTheme: appBarThemeDark,
     tabBarTheme: tabBarThemeDark,
+    bottomNavigationBarTheme: bottomNavigationBarThemeDark,
   );
 }
