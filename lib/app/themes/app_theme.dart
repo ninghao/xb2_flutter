@@ -125,6 +125,21 @@ const snackBarThemeDark = SnackBarThemeData(
   ),
 );
 
+// 按钮主题
+final elevatedButtonTheme = ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    elevation: 0,
+    shape: BeveledRectangleBorder(),
+  ),
+);
+
+final elevatedButtonThemeDark = ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    elevation: 0,
+    shape: BeveledRectangleBorder(),
+  ),
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -141,6 +156,7 @@ class AppTheme {
     tabBarTheme: tabBarTheme,
     bottomNavigationBarTheme: bottomNavigationBarTheme,
     snackBarTheme: snackBarTheme,
+    elevatedButtonTheme: elevatedButtonTheme,
   );
 
   // 暗色主题
@@ -158,5 +174,6 @@ class AppTheme {
     tabBarTheme: tabBarThemeDark,
     bottomNavigationBarTheme: bottomNavigationBarThemeDark,
     snackBarTheme: snackBarThemeDark,
+    elevatedButtonTheme: elevatedButtonThemeDark,
   );
 }
