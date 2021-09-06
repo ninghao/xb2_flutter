@@ -15,6 +15,15 @@ const secondaryTextColorDark = Color(0xff585858);
 const primaryBackgroundColor = Colors.white;
 const primaryBackgroundColorDark = Color(0xff222222);
 
+// 图标主题
+const iconTheme = IconThemeData(
+  color: Colors.black,
+);
+
+const iconThemeDark = IconThemeData(
+  color: secondaryTextColorDark,
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -25,6 +34,7 @@ class AppTheme {
       secondary: secondaryColor,
     ),
     scaffoldBackgroundColor: primaryBackgroundColor,
+    iconTheme: iconTheme,
   );
 
   // 暗色主题
@@ -36,5 +46,6 @@ class AppTheme {
       secondary: secondaryColorDark,
     ),
     scaffoldBackgroundColor: primaryBackgroundColorDark,
+    iconTheme: iconThemeDark,
   );
 }
