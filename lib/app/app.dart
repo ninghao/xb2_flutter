@@ -56,6 +56,8 @@ class _AppState extends State<App> {
     if (initializing) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
         home: Scaffold(
           body: Center(
             child: Text('初始化...'),
