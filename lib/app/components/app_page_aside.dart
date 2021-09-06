@@ -9,7 +9,7 @@ class AppPageAside extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text('王皓'),
-            accountEmail: Text('wanghao@ninghao.net'),
+            accountEmail: Text('https://nid-vue.ninghao.co'),
             currentAccountPicture: CircleAvatar(
               backgroundImage: NetworkImage(
                 'https://resources.ninghao.net/wanghao.jpg',
