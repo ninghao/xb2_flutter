@@ -16,6 +16,7 @@ class PostContent extends StatelessWidget {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w300,
+          color: Theme.of(context).textTheme.bodyText1!.color,
         ),
       ),
     );
