@@ -113,6 +113,18 @@ final bottomNavigationBarThemeDark = bottomNavigationBarTheme.copyWith(
   selectedItemColor: primaryColorDark,
 );
 
+// SnackBar 主题
+const snackBarTheme = SnackBarThemeData(
+  backgroundColor: Colors.black87,
+);
+
+const snackBarThemeDark = SnackBarThemeData(
+  backgroundColor: Colors.black87,
+  contentTextStyle: TextStyle(
+    color: primaryTextColorDark,
+  ),
+);
+
 class AppTheme {
   // 亮色主题
   static ThemeData light = ThemeData(
@@ -128,6 +140,7 @@ class AppTheme {
     appBarTheme: appBarTheme,
     tabBarTheme: tabBarTheme,
     bottomNavigationBarTheme: bottomNavigationBarTheme,
+    snackBarTheme: snackBarTheme,
   );
 
   // 暗色主题
@@ -144,5 +157,6 @@ class AppTheme {
     appBarTheme: appBarThemeDark,
     tabBarTheme: tabBarThemeDark,
     bottomNavigationBarTheme: bottomNavigationBarThemeDark,
+    snackBarTheme: snackBarThemeDark,
   );
 }
