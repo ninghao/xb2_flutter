@@ -76,7 +76,7 @@ class _AppHomeState extends State<AppHome> {
           onTap: onTapAppBottomNavigationBarItem,
         ),
         // floatingActionButton: AppFloatingActionButton(),
-        drawer: AppPageAside(),
+        // drawer: AppPageAside(),
       ),
     );
   }

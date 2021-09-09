@@ -10,12 +10,12 @@ class AppPageHeader extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: AppLogo(),
-      leading: IconButton(
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-        icon: Icon(Icons.menu),
-      ),
+      // leading: IconButton(
+      //   onPressed: () {
+      //     Scaffold.of(context).openDrawer();
+      //   },
+      //   icon: Icon(Icons.menu),
+      // ),
       actions: [
         AppPageHeaderActionsMore(),
       ],
