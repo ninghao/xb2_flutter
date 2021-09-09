@@ -12,10 +12,31 @@ class UserProfile extends StatelessWidget {
 
     // 登录
     final login = TextButton(
-      child: Text('请登录'),
+      child: Text('登录'),
       onPressed: () {
         appModel.setPageName('AuthLogin');
       },
+    );
+
+    // 注册
+    final register = TextButton(
+      child: Text('注册'),
+      onPressed: () {
+        appModel.setPageName('UserCreate');
+      },
+    );
+
+    // 分隔
+    final separator = Text('/');
+
+    // 动作
+    final actions = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        login,
+        separator,
+        register,
+      ],
     );
 
     // 用户
@@ -30,7 +51,7 @@ class UserProfile extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       child: Center(
-        child: authModel.isLoggedIn ? userProfile : login,
+        child: authModel.isLoggedIn ? userProfile : actions,
       ),
     );
   }

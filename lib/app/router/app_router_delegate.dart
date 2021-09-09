@@ -7,6 +7,7 @@ import 'package:xb2_flutter/auth/login/auth_login.dart';
 import 'package:xb2_flutter/playground/routing/components/about.dart';
 import 'package:xb2_flutter/post/show/post_show.dart';
 import 'package:xb2_flutter/post/show/post_show_model.dart';
+import 'package:xb2_flutter/user/create/user_create.dart';
 
 class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
@@ -93,6 +94,11 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
           MaterialPage(
             key: ValueKey('AuthLogin'),
             child: AuthLogin(),
+          ),
+        if (appModel.pageName == 'UserCreate')
+          MaterialPage(
+            key: ValueKey('UserCreate'),
+            child: UserCreate(),
           ),
       ],
       onPopPage: (route, result) {
