@@ -16,6 +16,7 @@ import 'package:xb2_flutter/playground/routing/components/about.dart';
 import 'package:xb2_flutter/post/post_provider.dart';
 import 'package:xb2_flutter/post/show/post_show.dart';
 import 'package:xb2_flutter/post/show/post_show_model.dart';
+import 'package:xb2_flutter/user/user_provider.dart';
 
 class App extends StatefulWidget {
   @override
@@ -73,6 +74,7 @@ class _AppState extends State<App> {
         ...appPrividers,
         ...postProviders,
         ...likeProviders,
+        ...userProviders,
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
