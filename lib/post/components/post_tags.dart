@@ -11,7 +11,8 @@ class PostTags extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
+      child: Wrap(
+        spacing: 8,
         children: tags.map((tag) {
           return Chip(label: Text(tag.name!));
         }).toList(),
