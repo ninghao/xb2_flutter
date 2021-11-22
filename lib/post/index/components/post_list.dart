@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xb2_flutter/post/index/components/post_list_item.dart';
@@ -61,18 +62,34 @@ class _PostListState extends State<PostList> {
       },
     );
 
-    final gridList = GridView.builder(
+    final gridList = StaggeredGridView.countBuilder(
+      crossAxisCount: 2,
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
       itemCount: posts.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-      ),
       itemBuilder: (context, index) {
         return PostListItem(
           item: posts[index],
           layout: PostListLayout.grid,
         );
+      },
+      staggeredTileBuilder: (index) {
+        final post = posts[index];
+
+        int crossAxisCount = 1;
+        double mainAxisCount = 1;
+
+        bool isPortrait = false;
+
+        if (post.file!.width != null && post.file!.height != null) {
+          isPortrait = post.file!.width! < post.file!.height!;
+        }
+
+        if (isPortrait) {
+          mainAxisCount = 1.5;
+        }
+
+        return StaggeredTile.count(crossAxisCount, mainAxisCount);
       },
     );
 
