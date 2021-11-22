@@ -35,10 +35,21 @@ class PostListItem extends StatelessWidget {
       ),
     );
 
+    bool isPortrait = false;
+
+    if (item.file!.width != null && item.file!.height != null) {
+      isPortrait = item.file!.width! < item.file!.height!;
+    }
+
+    final aspectRatio = isPortrait ? 3 / 4 : 3 / 2;
+
     final postListItemMedia = Stack(
       fit: layout == PostListLayout.grid ? StackFit.expand : StackFit.loose,
       children: [
-        PostMedia(post: item),
+        AspectRatio(
+          aspectRatio: aspectRatio,
+          child: PostMedia(post: item),
+        ),
         postListItemMediaMask,
       ],
     );
