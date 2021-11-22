@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xb2_flutter/app/app_model.dart';
 import 'package:xb2_flutter/app/components/app_home.dart';
+import 'package:xb2_flutter/app/components/app_initialize.dart';
 import 'package:xb2_flutter/app/router/app_route_configuration.dart';
 import 'package:xb2_flutter/auth/login/auth_login.dart';
 import 'package:xb2_flutter/playground/routing/components/about.dart';
@@ -73,10 +74,16 @@ class AppRouterDelegate extends RouterDelegate<AppRouteConfiguration>
     return Navigator(
       // key: _navigatorKey,
       pages: [
-        MaterialPage(
-          key: ValueKey('AppHome'),
-          child: AppHome(),
-        ),
+        if (appModel.initializing)
+          MaterialPage(
+            key: ValueKey('AppInitialize'),
+            child: AppInitialize(),
+          ),
+        if (!appModel.initializing)
+          MaterialPage(
+            key: ValueKey('AppHome'),
+            child: AppHome(),
+          ),
         if (appModel.pageName == 'About')
           MaterialPage(
             key: ValueKey('About'),

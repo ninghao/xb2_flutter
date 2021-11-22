@@ -27,8 +27,6 @@ class _AppState extends State<App> {
   final AppModel appModel = AppModel();
   final AuthModel authModel = AuthModel();
 
-  bool initializing = true;
-
   initialize() async {
     final prefs = await SharedPreferences.getInstance();
     final hasAuth = prefs.containsKey('auth');
@@ -41,9 +39,7 @@ class _AppState extends State<App> {
       authModel.setAuth(auth);
     }
 
-    setState(() {
-      initializing = false;
-    });
+    appModel.setInitializing(false);
   }
 
   @override
@@ -54,19 +50,6 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    if (initializing) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.light,
-        darkTheme: AppTheme.dark,
-        home: Scaffold(
-          body: Center(
-            child: Text('初始化...'),
-          ),
-        ),
-      );
-    }
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: authModel),
