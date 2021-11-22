@@ -16,6 +16,13 @@ class PostMedia extends StatelessWidget {
       child: Image.network(
         imageUrl,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, event) {
+          if (event == null) return child;
+
+          return Container(
+            color: Colors.black12,
+          );
+        },
       ),
     );
   }
