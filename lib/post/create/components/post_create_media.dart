@@ -52,7 +52,7 @@ class _PostCreateMediaState extends State<PostCreateMedia> {
             borderRadius: BorderRadius.circular(10),
             child: Image.file(
               File(
-                postCreateModel.selectedFile!.path,
+                postCreateModel.selectedFile!.path!,
               ),
             ),
           )

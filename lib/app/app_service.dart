@@ -31,7 +31,7 @@ class ApiHttpClient extends http.BaseClient {
 
     final multipartFile = await http.MultipartFile.fromPath(
       'file',
-      file.path,
+      file.path!,
       contentType: MediaType('image', file.extension ?? 'jpg'),
     );
 
